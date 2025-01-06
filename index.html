@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tas en Pedo</title>
+    <!-- Favicon para navegadores -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <!-- Manifest y theme-color para PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#C70039">
+    <!-- Estilos y fuentes -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="presentacion.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="content content-registro">
+            <div class="logo-container">
+                <img src="logo.webp" alt="Logo" class="logo">
+            </div>
+            <h1>¿Quién se suma?</h1>
+            <p style="text-align: center; font-size: 14px; color: #C70039; margin-bottom: 10px;">
+                Puedes agregar jugadores individualmente o separar varios nombres con comas (ejemplo: "Juan, María, Pedro").<br>
+                <strong>Nota:</strong> Agrega los jugadores en el mismo orden que se encuantran en la ronda.
+            </p>
+            <input type="text" id="username" name="username" placeholder="Registrar Jugador/a" class="username-input">
+            <button class="sumar-button">Sumar</button>
+            <button id="a-jugar-button" class="a-jugar-button" style="display: none;">A jugar</button>
+            <div id="lista-jugadores" class="lista-jugadores" style="display: none;"></div>
+        </div>
+        <button id="como-jugar-button" class="como-jugar-button">Cómo jugar</button>
+    </div>
+
+    <!-- Popup de instrucciones -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="close-popup" class="close-popup">&times;</span>
+            <h2>¡Bienvenido a Tas en Pedo! 🎉</h2>
+            <div class="popup-text">
+                <p>
+                    Este no es un juego cualquiera; es EL juego. La idea es que vos y tu grupo de compas se rían a carcajadas, acepten desafíos delirantes y, de paso, se manden algún que otro traguito. "Tas en Pedo" te desafía a poner a prueba tu creatividad, rapidez mental y sentido del humor mientras intentás sobrevivir a retos que no te los cree ni tu tía. 😜
+                </p>
+                <p>
+                    Es ideal para juntadas, previas o cualquier ocasión donde quieras cortar con el aburrimiento. ¿Te animás a los desafíos o vas a terminar bajo la mesa con un castigo? ¡Dale, arrancamos! 🎲🍻
+                </p>
+                <h3>Cómo se juega este descontrol</h3>
+                <p>
+                    Primero, todos los que quieran jugar tienen que anotar su nombre. Nada de entrar de colados, eh. Si ya hay al menos dos personas, le damos mecha al juego.  
+                </p>
+                <p>
+                    Cada turno, uno se convierte en el "valiente" del grupo. Le toca levantar una carta y hacer lo que diga. Puede ser un reto para él solo o algo que involucre al resto. Si no cumple o la pifia, se viene un castigo. Acá no hay perdón.  
+                </p>
+                <p>
+                    Algunos retos tienen tiempo. El temporizador arranca, y si no llegás, cagaste, te toca castigo. Así de simple.  
+                </p>
+                <p>
+                    Los castigos pueden ser cualquier cosa: un trago, una acción medio ridícula o algo que te haga rogar por desaparecer. Pueden armar los castigos entre todos, pero ojo, nada extremo, esto es para reírse, no para sufrir.  
+                </p>
+                <p>
+                    Cuando terminás (o fracasás), pasás la posta. El juego sigue hasta que se cansen o hasta que todos terminen en el piso riéndose.  
+                </p>
+                <h3>Reglas básicas para no armar bardo</h3>
+                <ul>
+                    <li>Anotá tu nombre al principio, nada de hacerse el distraído.</li>
+                    <li>Todos juegan con buena onda. Esto es para divertirse, no para andar tirando mala vibra.</li>
+                    <li>Si te toca un reto, lo intentás. Si fallás, aceptás el castigo como un campeón (aunque sea con cara de orto).</li>
+                    <li>Respetá el tiempo. Si te colgás, ya sabés, castigo directo.</li>
+                    <li>Los castigos y retos los pueden inventar entre todos, pero sin pasarse. ¡Queremos risas, no que alguien termine llamando al SAME!</li>
+                    <li>Cuando decidan que ya fue, se levanta un brindis y se cierra la noche. 🥂</li>
+                </ul>
+                <h3>Última cosa: jugá con cabeza</h3>
+                <p>
+                    Si hay alcohol de por medio, no seas tarado, tomá con moderación. Y si en algún momento no querés hacer un reto o castigo, está todo bien. La idea es pasarla joya, no andar forzando a nadie.  
+                </p>
+                <p>
+                    Listo, ya sabés cómo es la movida. Andá juntando a tus amigos, servite un trago y preparate para una noche de anécdotas que no vas a querer que lleguen a Instagram. ¡Que gane el que más se anime a todo! 🎉🍺
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup de presentación -->
+    <div id="popup-presentacion" class="popup">
+        <div class="popup-content">
+            <span id="close-presentacion" class="close-popup">&times;</span>
+            <div class="logo-container" style="margin-top: 20px;">
+                <img src="perfil.webp" alt="Marcs Alright" class="logo" style="border: 3px solid #C70039;">
+            </div>
+            <h2 style="margin-top: 80px;">👋 ¿¡Que onda!? Soy Marcs Alright</h2>
+            <div class="popup-text">
+                <p>🎨 Creador de "Tas en Pedo"</p>
+                <p>📍 Amante de la buena vibra, las juntadas y las noches que terminan con anécdotas épicas.</p>
+                <p>Me encanta crear cosas que hagan que la gente se ría, se conecte y termine contando historias que empiezan con "no sabés lo que pasó esa noche...". "Tas en Pedo" nació en una de esas ideas locas que surgen entre juntadas, risas, alcohol y humo, con ganas de sumar más chispa a las previas y fiestas.</p>
+                <p>🍻 Cuando no estoy inventando juegos</p>
+                <ul>
+                    <li>Me gusta organizar salidas, fiestas y armar planes espontáneos.</li>
+                    <li>Siempre estoy craneando nuevas formas de pasarla bien con la gente que me rodea.</li>
+                    <li>También me copa el mundo del sonido y la música, así que de vez en cuando me vas a ver toqueteando perillas o ajustando algo para que suene perfecto.</li>
+                </ul>
+                <p>✨ Creo firmemente que las mejores cosas pasan cuando se juntan las personas correctas y la noche fluye sola.</p>
+                <p>Así que, si te cruzás mi nombre por la app, ya sabés quién está detrás de todo esto. ¡Nos vemos en la próxima ronda!</p>
+                <p>____</p>
+                <p>👀 PD: La foto que ves por acá es prueba de que siempre estoy listo para un buen momento.</p>
+                <p>📸 Instagram: @marcs.alright</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página con créditos y nombre del juego -->
+    <footer class="footer">
+        <p><strong>Tas en Pedo</strong> - © 2025 <a href="#" id="marcs-link" class="footer-link">Marcs Alright</a>. Todos los derechos reservados. Creado con ❤️ para La guarida de L@s Prim@s</p>
+    </footer>
+
+    <!-- Script externo para manejar la lógica de agregar jugadores y el popup -->
+    <script src="script.js"></script>
+    <script>
+        // Registrar el Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('Service Worker registrado con éxito:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('Error al registrar el Service Worker:', error);
+                    });
+            });
+        }
+
+        // Manejar el popup de presentación
+        document.getElementById('marcs-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('popup-presentacion').style.display = 'flex';
+        });
+
+        document.getElementById('close-presentacion').addEventListener('click', function() {
+            document.getElementById('popup-presentacion').style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('popup-presentacion')) {
+                document.getElementById('popup-presentacion').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

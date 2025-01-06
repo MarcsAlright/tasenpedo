@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tas en Pedo - Juego</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="content content-juego">
+            <!-- Botón de cierre (X) -->
+            <span id="close-juego" class="close-juego">&times;</span>
+            <!-- Contenedor del logo -->
+            <div class="logo-container">
+                <img src="logo.webp" alt="Logo" class="logo">
+            </div>
+            <!-- Sección del Juego -->
+            <div id="juego">
+                <div id="carta" onclick="voltearCarta()">
+                    <p id="mensajeCarta">Presiona para comenzar 🃏</p>
+                </div>
+                <div id="retoCarta" style="display:none;">
+                    <p id="jugadorActual"></p>
+                    <p id="reto"></p>
+                    <p id="castigo"></p>
+                    <div id="temporizador-container">
+                        <div id="corazon">
+                            <img src="corazon.webp" alt="Corazón">
+                        </div>
+                        <div id="cuenta-regresiva">00:00</div>
+                    </div>
+                    <audio id="latido-audio" loop>
+                        <source src="latido.mp3" type="audio/mpeg">
+                    </audio>
+                    <audio id="alarma-audio">
+                        <source src="alarma.mp3" type="audio/mpeg">
+                    </audio>
+                    <div id="botones-temporizador">
+                        <button id="iniciar-temporizador" class="boton-temporizador">Comenzar</button>
+                        <button id="reiniciar-temporizador" class="boton-temporizador">Reiniciar</button>
+                    </div>
+                    <div style="display: flex; justify-content: center; gap: 10px;">
+                        <button class="boton-navegacion" onclick="siguienteJugador()">&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup de presentación -->
+    <div id="popup-presentacion" class="popup">
+        <div class="popup-content">
+            <span id="close-presentacion" class="close-popup">&times;</span>
+            <div class="logo-container" style="margin-top: 20px;">
+                <img src="perfil.webp" alt="Marcs Alright" class="logo" style="border: 3px solid #C70039;">
+            </div>
+            <h2 style="margin-top: 80px;">👋 ¿¡Que onda!? Soy Marcs Alright</h2>
+            <div class="popup-text">
+                <p>🎨 Creador de "Tas en Pedo"</p>
+                <p>📍 Amante de la buena vibra, las juntadas y las noches que terminan con anécdotas épicas.</p>
+                <p>Me encanta crear cosas que hagan que la gente se ría, se conecte y termine contando historias que empiezan con "no sabés lo que pasó esa noche...". "Tas en Pedo" nació en una de esas ideas locas que surgen entre juntadas, risas, alcohol y humo, con ganas de sumar más chispa a las previas y fiestas.</p>
+                <p>🍻 Cuando no estoy inventando juegos</p>
+                <ul>
+                    <li>Me gusta organizar salidas, fiestas y armar planes espontáneos.</li>
+                    <li>Siempre estoy craneando nuevas formas de pasarla bien con la gente que me rodea.</li>
+                    <li>También me copa el mundo del sonido y la música, así que de vez en cuando me vas a ver toqueteando perillas o ajustando algo para que suene perfecto.</li>
+                </ul>
+                <p>✨ Creo firmemente que las mejores cosas pasan cuando se juntan las personas correctas y la noche fluye sola.</p>
+                <p>Así que, si te cruzás mi nombre por la app, ya sabés quién está detrás de todo esto. ¡Nos vemos en la próxima ronda!</p>
+                <p>____</p>
+                <p>👀 PD: La foto que ves por acá es prueba de que siempre estoy listo para un buen momento.</p>
+                <p>📸 Instagram: @marcs.alright</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página con créditos y nombre del juego -->
+    <footer class="footer">
+        <p><strong>Tas en Pedo</strong> - © 2025 <a href="#" id="marcs-link" class="footer-link">Marcs Alright</a>. Todos los derechos reservados. Creado con ❤️ para La guarida de L@s Prim@s</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="retos.js"></script>
+    <script src="frases.js"></script>
+    <script src="juego.js"></script>
+
+    <script>
+        document.getElementById('marcs-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('popup-presentacion').style.display = 'flex';
+        });
+
+        document.getElementById('close-presentacion').addEventListener('click', function() {
+            document.getElementById('popup-presentacion').style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('popup-presentacion')) {
+                document.getElementById('popup-presentacion').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
