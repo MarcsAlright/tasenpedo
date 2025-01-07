@@ -6,7 +6,6 @@ const retosPersonalizados = JSON.parse(localStorage.getItem('retosPersonalizados
 const deshabilitarRetosPorDefecto = JSON.parse(localStorage.getItem('deshabilitarRetosPorDefecto')) || false;
 let castigosDisponibles = JSON.parse(localStorage.getItem('castigos')) || [];
 let intervaloLatido;
-let velocidadLatido = 1; // Velocidad inicial del latido
 let tiempoRestante;
 let temporizadorActivo = false;
 
@@ -44,31 +43,19 @@ function iniciarTemporizador() {
     temporizadorActivo = true;
 
     const cuentaRegresiva = document.getElementById('cuenta-regresiva');
-    const corazon = document.getElementById('corazon').querySelector('img');
-    const audioLatido = document.getElementById('latido-audio');
+    const audioSuspenso = document.getElementById('suspenso-audio');
     const audioAlarma = document.getElementById('alarma-audio');
 
     // Mostrar el tiempo seleccionado al iniciar
     cuentaRegresiva.textContent = `00:${tiempoTemporizador.toString().padStart(2, '0')}`;
 
-    // Iniciar la animación del corazón
-    corazon.style.animation = 'latir 1s infinite';
-    corazon.style.animationPlayState = 'running';
-
-    // Iniciar el sonido del latido en loop
-    audioLatido.play();
+    // Iniciar el sonido de suspenso
+    audioSuspenso.play();
 
     // Iniciar el temporizador
     intervaloLatido = setInterval(() => {
         tiempoRestante--;
         cuentaRegresiva.textContent = `00:${tiempoRestante.toString().padStart(2, '0')}`;
-
-        // Aumentar la velocidad del latido cada 2 segundos
-        if (tiempoRestante % 2 === 0) {
-            velocidadLatido += 0.2;
-            corazon.style.animationDuration = `${1 / velocidadLatido}s`;
-            audioLatido.playbackRate = velocidadLatido;
-        }
 
         // Detener el temporizador cuando llegue a 0
         if (tiempoRestante <= 0) {
@@ -84,20 +71,16 @@ function detenerTemporizador() {
     clearInterval(intervaloLatido);
     temporizadorActivo = false;
 
-    const corazon = document.getElementById('corazon').querySelector('img');
-    const audioLatido = document.getElementById('latido-audio');
+    const audioSuspenso = document.getElementById('suspenso-audio');
 
-    // Detener la animación del corazón
-    corazon.style.animationPlayState = 'paused';
-
-    // Detener el sonido del latido
-    audioLatido.pause();
+    // Detener el sonido de suspenso
+    audioSuspenso.pause();
+    audioSuspenso.currentTime = 0; // Reiniciar el audio
 }
 
 // Función para reiniciar el temporizador
 function reiniciarTemporizador() {
     detenerTemporizador();
-    velocidadLatido = 1; // Reiniciar la velocidad del latido
     const tiempoTemporizador = parseInt(localStorage.getItem('tiempoTemporizador')) || 10;
     document.getElementById('cuenta-regresiva').textContent = `00:${tiempoTemporizador.toString().padStart(2, '0')}`;
 }

@@ -10,7 +10,7 @@ const ASSETS = [
   '/logo.webp',
   '/fnd.webp',
   '/corazon.webp',
-  '/latido.mp3',
+  '/suspenso.mp3',  // Nuevo archivo de audio
   '/alarma.mp3'
 ];
 

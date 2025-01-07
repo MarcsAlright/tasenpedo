@@ -631,3 +631,29 @@ h1 {
     scrollbar-width: thin; /* Ancho de la barra de desplazamiento */
     scrollbar-color: #C70039 rgba(0, 0, 0, 0.1); /* Color de la barra y de la pista */
 }
+
+/* Ajustes generales para pantallas pequeñas */
+@media (max-width: 600px) {
+    .content-registro, .content-juego {
+        width: 95%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .sumar-button, .a-jugar-button {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .lista-jugadores {
+        max-height: 30vh;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+}
