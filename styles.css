@@ -82,7 +82,7 @@ html, body {
 /* Estilos para el título */
 h1 {
     margin-top: 65px; /* Margen superior para separar el título del logo */
-    font-size: 24px; /* Tamaño de la fuente */
+    font-size: 26px; /* Tamaño de la fuente aumentado a 26px */
     color: #C70039; /* Color del título */
     font-family: 'Fredoka', sans-serif; /* Aplicar la fuente Fredoka */
     font-weight: 600; /* Peso semi-negrita */
@@ -95,7 +95,7 @@ h1 {
     margin-top: 15px; /* Margen superior para separarlo del título */
     border: 1px solid rgba(0, 0, 0, 0.3); /* Borde sutil */
     border-radius: 5px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de la fuente */
+    font-size: 18px; /* Tamaño de la fuente aumentado a 18px */
     background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
     backdrop-filter: blur(2px); /* Efecto de desenfoque */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -116,7 +116,7 @@ h1 {
     margin-top: 15px; /* Margen superior para separarlo del campo de texto */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de la fuente */
+    font-size: 18px; /* Tamaño de la fuente aumentado a 18px */
     background-color: orange; /* Color de fondo naranja */
     color: white; /* Color del texto */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
@@ -211,7 +211,7 @@ h1 {
     margin-top: 15px; /* Margen superior para separarlo del botón "Sumar" */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de la fuente */
+    font-size: 18px; /* Tamaño de la fuente aumentado a 18px */
     background-color: #C70039; /* Color de fondo #C70039 */
     color: white; /* Color del texto */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
@@ -233,7 +233,7 @@ h1 {
     margin-top: 10px; /* Margen superior para separarlo del cuadro translúcido */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
-    font-size: 14px; /* Tamaño de la fuente */
+    font-size: 16px; /* Tamaño de la fuente */
     background-color: #C70039; /* Color de fondo #C70039 */
     color: white; /* Color del texto */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
@@ -424,14 +424,14 @@ h1 {
 
 /* Estilos para el mensaje dentro de la carta */
 #mensajeCarta {
-    font-size: 18px; /* Tamaño de la fuente */
+    font-size: 20px; /* Tamaño de la fuente aumentado a 20px */
     font-family: 'Fredoka', sans-serif; /* Aplicar la fuente Fredoka */
     font-weight: 400; /* Peso normal (no negrita) */
 }
 
 /* Estilos para el texto dentro de la carta de retos */
 #retoCarta p {
-    font-size: 18px; /* Tamaño de la fuente */
+    font-size: 20px; /* Tamaño de la fuente aumentado a 20px */
     font-family: 'Fredoka', sans-serif; /* Aplicar la fuente Fredoka */
     font-weight: 400; /* Peso normal (no negrita) */
     color: #fff6eb; /* Color del texto */
@@ -445,7 +445,7 @@ h1 {
     border-radius: 5px; /* Bordes redondeados */
     background-color: #00be29; /* Color de fondo */
     color: #fff6eb; /* Color del texto */
-    font-size: 20px; /* Tamaño de la fuente */
+    font-size: 22px; /* Tamaño de la fuente aumentado a 22px */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     display: flex;
     justify-content: center;
@@ -472,7 +472,7 @@ h1 {
 }
 
 #cuenta-regresiva {
-    font-size: 24px;
+    font-size: 26px; /* Tamaño de la fuente aumentado a 26px */
     font-family: 'Fredoka', sans-serif;
     color: #C70039;
     margin-top: 10px;
@@ -640,20 +640,48 @@ h1 {
     }
 
     h1 {
-        font-size: 24px;
+        font-size: 26px; /* Aumentado de 24px a 26px */
     }
 
     .sumar-button, .a-jugar-button {
         width: 100%;
         padding: 15px;
+        font-size: 18px; /* Aumentado de 16px a 18px */
     }
 
     .lista-jugadores {
         max-height: 30vh;
     }
 
-    .logo {
-        width: 80px;
-        height: 80px;
+    .lista-jugadores p {
+        font-size: 16px; /* Aumentado de 14px a 16px */
+    }
+
+    .popup-content h2 {
+        font-size: 22px; /* Aumentado de 20px a 22px */
+    }
+
+    .popup-content p {
+        font-size: 16px; /* Aumentado de 14px a 16px */
+    }
+
+    .popup-content li {
+        font-size: 16px; /* Aumentado de 14px a 16px */
+    }
+
+    #mensajeCarta {
+        font-size: 20px; /* Aumentado de 18px a 20px */
+    }
+
+    #retoCarta p {
+        font-size: 20px; /* Aumentado de 18px a 20px */
+    }
+
+    #cuenta-regresiva {
+        font-size: 26px; /* Aumentado de 24px a 26px */
+    }
+
+    .boton-navegacion {
+        font-size: 22px; /* Aumentado de 20px a 22px */
     }
 }
